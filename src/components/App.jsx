@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import GlobalStyles from '../theme/GlobalStyles';
+import GlobalStyles from "../theme/GlobalStyles";
 
-import Login from './login';
-import Signup from './signup';
-import Main from './main';
+import Login from "./login";
+import Signup from "./signup";
+import Main from "./main";
 
 export default function App() {
 	return (

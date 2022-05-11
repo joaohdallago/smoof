@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Logo from '../../logo';
+import Logo from "../../logo";
 
 export default function Header() {
 	return (

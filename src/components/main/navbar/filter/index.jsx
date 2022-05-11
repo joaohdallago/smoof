@@ -1,4 +1,4 @@
-import { HiFilter } from 'react-icons/hi';
+import { HiFilter } from "react-icons/hi";
 
 export default function Filter() {
 	return (

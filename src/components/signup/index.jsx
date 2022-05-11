@@ -1,11 +1,11 @@
-import AuthContainer from '../../theme/AuthContainer';
+import AuthContainer from "../../theme/AuthContainer";
 
-import Logo from '../logo';
+import Logo from "../logo";
 
 export default function Signup() {
 	return (
 		<AuthContainer>
-			<Logo color='blue'/>
+			<Logo/>
 			<h1>Signup</h1>
 		</AuthContainer>
 	);

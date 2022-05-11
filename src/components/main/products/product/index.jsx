@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import AddToCartButton from './add-to-cart-button';
+import AddToCartButton from "./add-to-cart-button";
 
 export default function Product({
 	model,

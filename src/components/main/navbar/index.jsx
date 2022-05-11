@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Cart from './cart';
-import Filter from './filter';
-import LoginIcon from './login-icon';
+import Cart from "./cart";
+import Filter from "./filter";
+import LoginIcon from "./login-icon";
 
 export default function Navbar() {
 	return (

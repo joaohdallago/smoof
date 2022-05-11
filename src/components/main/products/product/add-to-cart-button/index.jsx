@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { MdAddShoppingCart } from 'react-icons/md';
+import styled from "styled-components";
+import { MdAddShoppingCart } from "react-icons/md";
 
 export default function AddToCartButton() {
 
