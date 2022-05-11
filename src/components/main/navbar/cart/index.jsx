@@ -1,9 +1,9 @@
-import { HiShoppingCart } from 'react-icons/hi';
+import { MdShoppingCart } from 'react-icons/md';
 
 export default function Cart() {
 	return (
 		<div>
-			<HiShoppingCart />
+			<MdShoppingCart />
 		</div>
 	);
 }
