@@ -16,6 +16,7 @@ const Container = styled.div`
 	align-items: center;
 
 	height: 80px;
+   width: 100%;
 
 	box-shadow: 2px 2px 16px 4px rgba(0, 0, 0, 0.5);
 
