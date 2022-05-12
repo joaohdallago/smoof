@@ -15,28 +15,27 @@ export default function Navbar() {
 }
 
 const Container = styled.div`
-    display: flex;
+	display: flex;
 
-    height: 60px;
+	height: 60px;
 
+	> div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-    >div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+		height: 100%;
+		width: 100%;
 
-        height: 100%;
-        width: 100%;
+		:active {
+			color: white;
+			background-color: black;
 
-        :active {
-            color: white;
-            background-color: black;
-            
-            transition: 0.2s;
-        }
+			transition: 0.2s;
+		}
 
-        >svg {
-            font-size: 30px;
-        }
-    }
+		> svg {
+			font-size: 30px;
+		}
+	}
 `;
