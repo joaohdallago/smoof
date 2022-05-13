@@ -1,6 +1,6 @@
-import AuthContainer from '../../theme/AuthContainer';
+import AuthContainer from "../../theme/AuthContainer";
 
-import Logo from '../logo';
+import Logo from "../logo";
 
 export default function Login() {
 	return (
