@@ -12,9 +12,9 @@ export default function Products() {
 
 	const page = searchParams.get("page") || 1;
 	useEffect(() => {
-		const url = `http://localhost:5000/products/?page=${page}`;
+		//const url = `http://localhost:5000/products/?page=${page}`;
 		
-		// const url = `https://mongodb-projeto-smoof.herokuapp.com/products/?page=${page}`; 
+		const url = `https://mongodb-projeto-smoof.herokuapp.com/products/?page=${page}`; 
         
 		const promise = axios.get(url);
 
