@@ -11,7 +11,6 @@ export default function AddToCartButton() {
 }
 
 const Container = styled.button`
-
     position: absolute;
     top: 25px;
     left: 35px;

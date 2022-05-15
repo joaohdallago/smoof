@@ -10,21 +10,23 @@ export default function Product({
 	
 	return (
 		<Container>
-			<img
-				src={media[0]} alt={name}
+			<div>
+				<img
+					src={media[0]} alt={name}
 
-				onMouseOver = {
-					e => {
-						e.target.src = media[1];
+					onMouseOver = {
+						e => {
+							e.target.src = media[1];
+						}
 					}
-				}
 
-				onMouseOut = {
-					e => {
-						e.target.src = media[0];
+					onMouseOut = {
+						e => {
+							e.target.src = media[0];
+						}
 					}
-				}
-			/>
+				/>
+			</div>
 			<span>{name}</span>
 			<span>U$ {price}</span>
 			<AddToCartButton />
@@ -35,25 +37,34 @@ export default function Product({
 const Container = styled.div`
     position: relative;
 
-	height: 252px;
-	width: 330px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+	justify-content: space-evenly;
+
+	width: 330px;
 	
-	padding: 5px;
+	padding: 10px;
 	border-radius: 10px;
 	box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.2);
 
 	background-color: #F8F8F8;
 	
 	>span {
+		text-align: center;
 		font-size: 20px;
 		color: #bbbbbb;
 	}
+	>div{
+		display: flex;
+		align-items: center;
 
-    >img {
+		height: 220px;
+		width: 300px;
+
+		>img {
         width: 100%;
-    }
+    	}
+	}
+    
 `;
