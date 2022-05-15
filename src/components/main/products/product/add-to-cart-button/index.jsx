@@ -11,19 +11,24 @@ export default function AddToCartButton() {
 }
 
 const Container = styled.button`
-    position: absolute;
-    right: 30px;
-    bottom: 0px;
 
+    position: absolute;
+    top: 25px;
+    left: 35px;
+
+    color: #bbbbbb;
+
+    background-color: transparent;
     :active {
-        color: white;
-        background-color: black;
+        color: black;
         
         transition: 0.2s;
-
     }
 
     >svg{
         font-size: 25px;
+
+        box-shadow: none;
+        
     }
 `;
