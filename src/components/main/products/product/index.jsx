@@ -3,14 +3,14 @@ import styled from "styled-components";
 import AddToCartButton from "./add-to-cart-button";
 
 export default function Product({
-	model,
-	img,
+	name,
+	media,
 	price
 }) {
 	return (
 		<Container>
-			<h2>{model}</h2>
-			<img src={img} alt={model} />
+			<h2>{name}</h2>
+			<img src={media[0]} alt={name} />
 			<h2>R$ {price}</h2>
 			<AddToCartButton />
 		</Container>

@@ -1,15 +1,16 @@
 import styled from "styled-components";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 
 import Product from "./product";
 
 export default function Products() {
+	const [searchParams] = useSearchParams();
 	const [ productsList, setProductsList ] = useState([]);
-
+	const page = searchParams.get("page");
 	useEffect(() => {
-		const url = "https://mongodb-projeto-smoof.herokuapp.com/products"; 
+		const url = `http://localhost:5000/products/?page=${page}`; //"https://mongodb-projeto-smoof.herokuapp.com/products"; 
         
 		const promise = axios.get(url);
 
@@ -20,7 +21,7 @@ export default function Products() {
 			.catch(err => {
 				console.log(err);
 			});
-	}, []);
+	}, [page]);
 
 	return (
 		<Container>
