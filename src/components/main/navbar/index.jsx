@@ -15,10 +15,20 @@ export default function Navbar() {
 }
 
 const Container = styled.div`
-	display: flex;
+	position: sticky;
+	top: -3px;
+	left: 0;
+	right: 0;
+	z-index: 1;
 
 	height: 60px;
 
+	display: flex;
+
+	margin-top: 80px;
+
+	background-color: white;
+	box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.2);
 	> div {
 		display: flex;
 		justify-content: center;
@@ -36,6 +46,7 @@ const Container = styled.div`
 
 		> svg {
 			font-size: 30px;
+			box-shadow: none;
 		}
 	}
 `;
