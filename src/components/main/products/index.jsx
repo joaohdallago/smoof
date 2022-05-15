@@ -10,7 +10,7 @@ export default function Products() {
 	const [ productsList, setProductsList ] = useState([]);
 	const page = searchParams.get("page");
 	useEffect(() => {
-		const url = `http://localhost:5000/products/?page=${page}`; //"https://mongodb-projeto-smoof.herokuapp.com/products"; 
+		const url = `https://mongodb-projeto-smoof.herokuapp.com/products/?page=${page}`; 
         
 		const promise = axios.get(url);
 
