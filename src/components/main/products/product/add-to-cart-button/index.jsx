@@ -1,10 +1,22 @@
 import styled from "styled-components";
 import { MdAddShoppingCart } from "react-icons/md";
+import { useContext } from "react";
+
+import UserContext from "../../../../../contexts/UserContext";
 
 export default function AddToCartButton() {
+	const { user } = useContext(UserContext);
+
+	function addToCart() {
+		if (!user) return alert("você não está logado!");
+
+		console.log(user);
+	}
 
 	return (
-		<Container>
+		<Container
+			onClick={addToCart}
+		>
 			<MdAddShoppingCart />
 		</Container>
 	);

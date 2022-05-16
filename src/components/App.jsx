@@ -10,12 +10,12 @@ import Main from "./main";
 import UserContext from "../contexts/UserContext";
 
 export default function App() {
-	const [user, setUser] = useState(null);
+	const [ user, setUser ] = useState(null);
 
 	return (
 		<>
+			<GlobalStyles />
 			<UserContext.Provider value={{ user, setUser }}>
-				<GlobalStyles />
 				<BrowserRouter>
 					<Routes>
 						<Route path="/" element={<Main />} />

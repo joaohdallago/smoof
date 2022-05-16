@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
 
-import UserContext from "../../../../contexts/UserContext.js";
+import UserContext from "../../../../../contexts/UserContext";
 
 export default function LoginIcon() {
 	const { user, setUser } = useContext(UserContext);
