@@ -48,7 +48,7 @@ export default function Products() {
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-	align-items: center;
+	  align-items: center;
     gap: 30px;
-	padding: 20px 0;
+	  padding: 20px 0;
 `;
