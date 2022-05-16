@@ -1,23 +1,24 @@
 import styled from "styled-components";
 import { MdAddShoppingCart } from "react-icons/md";
-import { useContext } from "react";
+import { useState } from "react";
 
-import UserContext from "../../../../../contexts/UserContext";
+import SizeModal from "./size-modal";
 
-export default function AddToCartButton() {
-	const { user } = useContext(UserContext);
+export default function AddToCartButton({ name }) {
+	const [ isSizeModalOpen, setIsSizeModalOpen ] = useState(false);
 
-	function addToCart() {
-		if (!user) return alert("você não está logado!");
-
-		console.log(user);
+	async function addToCart() {
+		setIsSizeModalOpen(true);
 	}
 
 	return (
-		<Container
-			onClick={addToCart}
-		>
-			<MdAddShoppingCart />
+		<Container>
+			{
+				isSizeModalOpen?
+					<SizeModal {...{isSizeModalOpen ,setIsSizeModalOpen, name}}/>
+					:
+					<MdAddShoppingCart onClick={addToCart}/>
+			}
 		</Container>
 	);
 }
@@ -27,14 +28,13 @@ const Container = styled.button`
     top: 25px;
     left: 35px;
 
+	display: flex;
+
+    width: calc(100% - 70px);
+
     color: #bbbbbb;
 
     background-color: transparent;
-    :active {
-        color: black;
-        
-        transition: 0.2s;
-    }
 
     >svg{
         font-size: 25px;

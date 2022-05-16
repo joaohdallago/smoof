@@ -5,7 +5,7 @@ import AddToCartButton from "./add-to-cart-button";
 export default function Product({
 	name,
 	media,
-	price
+	price,
 }) {
 	
 	return (
@@ -29,7 +29,7 @@ export default function Product({
 			</div>
 			<span>{name}</span>
 			<span>U$ {price}</span>
-			<AddToCartButton />
+			<AddToCartButton {...{name}}/>
 		</Container>
 	);
 }

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState, useEffect} from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
+import PulseLoader from "react-spinners/PulseLoader";
 
 import Product from "./product";
 import Loader from "./loader";
@@ -12,8 +13,7 @@ export default function Products() {
 
 	const page = searchParams.get("page") || 1;
 	useEffect(() => {
-		const url = `http://localhost:5000/products/?page=${page}`;
-		//const url = `https://mongodb-projeto-smoof.herokuapp.com/products/?page=${page}`; 
+		const url = `https://mongodb-projeto-smoof.herokuapp.com/products/?page=${page}`; 
         
 		const promise = axios.get(url);
 
@@ -33,9 +33,14 @@ export default function Products() {
 	return (
 		<Container>
 			{
-				productsList.map(productData => <Product {...productData}/>)
-			}
-			{page <= 5 && <Loader {...{nextPage}}/>}
+				productsList[0] ?
+					<>
+						{productsList.map(productData => <Product {...productData}/>)}
+						{page <= 5 && <Loader {...{nextPage}}/>}
+					</>
+					:
+					<PulseLoader />
+			}	
 		</Container>
 	);
 }
@@ -45,5 +50,5 @@ const Container = styled.div`
     flex-direction: column;
 	align-items: center;
     gap: 30px;
-	padding: 20px 0 ;
+	padding: 20px 0;
 `;

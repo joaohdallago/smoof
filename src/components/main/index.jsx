@@ -13,6 +13,7 @@ export default function Main() {
 		isModalOpen: false,
 	});
 	const [ cart, setCart ] = useState({
+		products: [],
 		isModalOpen: false
 	});
 
