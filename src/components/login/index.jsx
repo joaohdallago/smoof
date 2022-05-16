@@ -1,24 +1,32 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import styled from "styled-components";
+import PulseLoader from "react-spinners/PulseLoader";
 
 import AuthContainer from "../../theme/AuthContainer";
 
 import Header from "./header";
 
 import UserContext from "../../contexts/UserContext";
+import LoadingContext from "../../contexts/LoadingContext";
 
 export default function SignIn() {
+	const navigate = useNavigate();
+
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
 	const { setUser } = useContext(UserContext);
-	const navigate = useNavigate();
-
+	const { isLoading, setIsLoading } = useContext(LoadingContext);
+	console.log(
+		{isLoading, setIsLoading}
+	);
 	async function handleSubmit(e) {
 		e.preventDefault();
+
+		setIsLoading(true);
+
 		try {
 			const response = await axios.post(
 				"https://mongodb-projeto-smoof.herokuapp.com/signin",
@@ -34,6 +42,8 @@ export default function SignIn() {
 		} catch (e) {
 			alert("Infelizmente não foi possível logar. Tente novamente!");
 			console.log(e.response);
+		} finally {
+			setIsLoading(false);
 		}
 	}
 
@@ -54,7 +64,16 @@ export default function SignIn() {
 					onChange={(e) => setPassword(e.target.value)}
 				/>
 				<Button type="submit" onClick={handleSubmit}>
-					Logar
+					{
+						isLoading?
+							<PulseLoader
+								color="white"
+								size='10px'
+								speedMultiplier='0.5'
+							/>
+							:
+							"Logar"
+					}
 				</Button>
 			</AuthContainer>
 			<Link to="/signup">Ainda não tem uma conta? Cadastra-se aqui!</Link>
@@ -80,6 +99,11 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+
 	background-color: black;
 	color: white;
 
