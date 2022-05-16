@@ -1,15 +1,22 @@
 import styled from "styled-components";
+import { useContext } from "react";
 
-import Cart from "./cart";
-import Filter from "./filter";
-import LoginIcon from "./login-icon";
+import FilterModal from "./filter-modal";
+import CartModal from "./cart-modal";
+import Icons from "./icons";
+
+import FilterContext from "../../../contexts/FilterContext";
+import CartContext from "../../../contexts/CartContext";
 
 export default function Navbar() {
+	const { cart } = useContext(CartContext);
+	const { filter } = useContext(FilterContext);
+
 	return (
 		<Container>
-			<LoginIcon />
-			<Cart />
-			<Filter />
+			<Icons />
+			{cart.isModalOpen && <CartModal />}
+			{filter.isModalOpen && <FilterModal />}
 		</Container>
 	);
 }
@@ -21,32 +28,10 @@ const Container = styled.div`
 	right: 0;
 	z-index: 1;
 
-	height: 60px;
+	
 
 	display: flex;
+	flex-direction: column;
 
 	margin-top: 80px;
-
-	background-color: white;
-	box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.2);
-	> div {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		height: 100%;
-		width: 100%;
-
-		:active {
-			color: white;
-			background-color: black;
-
-			transition: 0.2s;
-		}
-
-		> svg {
-			font-size: 30px;
-			box-shadow: none;
-		}
-	}
 `;

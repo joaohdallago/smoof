@@ -1,10 +1,10 @@
-import { HiLogin } from "react-icons/hi";
+import { HiLogin, HiLogout } from "react-icons/hi";
 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
 
-import UserContext from "../../../../contexts/UserContext.js";
+import UserContext from "../../../../../contexts/UserContext";
 
 export default function LoginIcon() {
 	const { user, setUser } = useContext(UserContext);
@@ -29,9 +29,18 @@ export default function LoginIcon() {
 		}
 	}
 
+	function goLogin() {
+		return navigate("/login");
+	}
+
 	return (
 		<div>
-			<HiLogin onClick={handleSignOut} />
+			{
+				user?
+					<HiLogout onClick={handleSignOut}/>
+					:
+					<HiLogin  onClick={goLogin}/>
+			}
 		</div>
 	);
 }

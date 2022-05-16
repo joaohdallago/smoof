@@ -1,29 +1,40 @@
 import styled from "styled-components";
 import { MdAddShoppingCart } from "react-icons/md";
+import { useState } from "react";
 
-export default function AddToCartButton() {
+import SizeModal from "./size-modal";
+
+export default function AddToCartButton({ name }) {
+	const [ isSizeModalOpen, setIsSizeModalOpen ] = useState(false);
+
+	async function addToCart() {
+		setIsSizeModalOpen(true);
+	}
 
 	return (
 		<Container>
-			<MdAddShoppingCart />
+			{
+				isSizeModalOpen?
+					<SizeModal {...{isSizeModalOpen ,setIsSizeModalOpen, name}}/>
+					:
+					<MdAddShoppingCart onClick={addToCart}/>
+			}
 		</Container>
 	);
 }
 
 const Container = styled.button`
-
     position: absolute;
     top: 25px;
     left: 35px;
 
+	display: flex;
+
+    width: calc(100% - 70px);
+
     color: #bbbbbb;
 
     background-color: transparent;
-    :active {
-        color: black;
-        
-        transition: 0.2s;
-    }
 
     >svg{
         font-size: 25px;

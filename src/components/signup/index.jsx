@@ -1,23 +1,30 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import styled from "styled-components";
 
 import AuthContainer from "../../theme/AuthContainer";
 
+import PulseLoader from "react-spinners/PulseLoader";
 import Header from "./header";
 
+import LoadingContext from "../../contexts/LoadingContext";
+
 export default function Signup() {
+	const navigate = useNavigate();
+
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 
-	const navigate = useNavigate();
+	const { isLoading, setIsLoading } = useContext(LoadingContext);
 
 	async function handleSubmit(e) {
 		e.preventDefault();
+		
+		setIsLoading(true);
+
 		try {
 			await axios.post("https://mongodb-projeto-smoof.herokuapp.com/signup", {
 				name,
@@ -33,6 +40,8 @@ export default function Signup() {
 				"Infelizmente não foi possível concluir o cadastro. Tente novamente!"
 			);
 			console.log(e);
+		} finally {
+			setIsLoading(false);
 		}
 	}
 
@@ -65,7 +74,16 @@ export default function Signup() {
 					onChange={(e) => setConfirmPassword(e.target.value)}
 				/>
 				<Button type="submit" onClick={handleSubmit}>
-					Cadastrar
+					{
+						isLoading?
+							<PulseLoader
+								color="white"
+								size='10px'
+								speedMultiplier='0.5'
+							/>
+							:
+							"Cadastrar"
+					}
 				</Button>
 			</AuthContainer>
 			<Link to="/login">Já tem uma conta? Entre agora!</Link>
