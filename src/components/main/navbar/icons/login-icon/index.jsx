@@ -1,4 +1,4 @@
-import { HiLogin } from "react-icons/hi";
+import { HiLogin, HiLogout } from "react-icons/hi";
 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -29,9 +29,18 @@ export default function LoginIcon() {
 		}
 	}
 
+	function goLogin() {
+		return navigate("/login");
+	}
+
 	return (
 		<div>
-			<HiLogin onClick={handleSignOut} />
+			{
+				user?
+					<HiLogout onClick={handleSignOut}/>
+					:
+					<HiLogin  onClick={goLogin}/>
+			}
 		</div>
 	);
 }
